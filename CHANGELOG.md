@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6
+- Fix the bounce badge failing to decrement as Prayer of Mending jumps.
+- Reduce beep volume by 20%.
+- Display name is now "PomPom" throughout, matching the addon folder.
+- Update interface versions for Classic Era 1.15.9 and TBC Anniversary 2.5.6.
+
 ## 1.5
 - Ship four custom `.ogg` beeps in the `sounds/` folder as the only preset options.
 - Guard against out-of-range saved `soundIndex` from prior versions.

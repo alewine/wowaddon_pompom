@@ -1,14 +1,15 @@
-## Interface: 11507
-## Interface-Classic: 11507
-## Interface-BCC: 20504
+## Interface: 11509
+## Interface-Classic: 11509
+## Interface-BCC: 20506
 ## Interface-Wrath: 30403
 ## Interface-Cata: 40400
 ## Title: PomPom
 ## Notes: Prayer of Mending tracker (self-cast)
 ## Author: Zeroseven
-## Version: 1.5
+## Version: 1.6
 ## X-Category: Buffs & Debuffs
 ## X-License: MIT
+## X-Website: https://github.com/alewine/wowaddon_pompom
 ## SavedVariablesPerCharacter: PomPomDB
 
 PomPom.lua
