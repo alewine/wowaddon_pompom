@@ -12,7 +12,7 @@
 ## 1.3
 - Config layout reworked: checkboxes at the top, sound picker in the middle, sliders at the bottom.
 - Trimmed config frame padding.
-- Restyled title: bold "Pom Pom" with a small-caps "PRAYER OF MENDING TRACKER" subtitle and hairline rule.
+- Restyled title: bold "PomPom" with a small-caps "PRAYER OF MENDING TRACKER" subtitle and hairline rule.
 
 ## 1.2
 - Sound dropdown with a **Test** button that plays the currently-selected preset.

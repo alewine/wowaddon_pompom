@@ -3,7 +3,7 @@
 ## Interface-BCC: 20504
 ## Interface-Wrath: 30403
 ## Interface-Cata: 40400
-## Title: Pom Pom
+## Title: PomPom
 ## Notes: Prayer of Mending tracker (self-cast)
 ## Author: Zeroseven
 ## Version: 1.5

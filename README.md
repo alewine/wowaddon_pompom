@@ -1,10 +1,10 @@
-<p align="center"><img src="logo.png" width="180" alt="Pom Pom logo"></p>
+<p align="center"><img src="logo.png" width="180" alt="PomPom logo"></p>
 
-# Pom Pom
+# PomPom
 
 A minimal Prayer of Mending tracker for World of Warcraft Classic. Self-cast only.
 
-![Pom Pom tracker](screenshots/tracker.png)
+![PomPom tracker](screenshots/tracker.png)
 
 ## What it does
 
@@ -20,7 +20,7 @@ A minimal Prayer of Mending tracker for World of Warcraft Classic. Self-cast onl
 
 **Manual**: download the latest release zip → extract → drop the `PomPom/` folder into `Interface\AddOns\`.
 
-**CurseForge**: (once published) search *Pom Pom* in your addon manager.
+**CurseForge**: (once published) search *PomPom* in your addon manager.
 
 ## Configuration
 

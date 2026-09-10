@@ -173,7 +173,7 @@ end
 local function CheckAvailability()
     local _, class = UnitClass("player")
     if class ~= "PRIEST" then
-        return false, "Pom Pom is priest-only."
+        return false, "PomPom is priest-only."
     end
     local known = (IsPlayerSpell and IsPlayerSpell(POM_SPELL_ID))
         or (IsSpellKnown and IsSpellKnown(POM_SPELL_ID))
@@ -327,7 +327,8 @@ local function OnUpdate(self, elapsed)
     end
 
     -- Edge-trigger: recast just became available while PoM is still active.
-    if state.active and cdReady and not wasCdReady then
+    -- Only beep in combat — an OOC ready-cue would be noise between fights.
+    if state.active and cdReady and not wasCdReady and inCombat then
         if DB().sound then PlayPomSound() end
     end
     wasCdReady = cdReady
@@ -508,14 +509,14 @@ local function CreateConfigFrame()
     config:SetScript("OnMouseDown", function(self) self:StartMoving() end)
     config:SetScript("OnMouseUp",   function(self) self:StopMovingOrSizing() end)
 
-    -- Title: bold gold "Pom Pom" + small-caps subtitle sharing the baseline
+    -- Title: bold gold "PomPom" + small-caps subtitle sharing the baseline
     local title = config:CreateFontString(nil, "OVERLAY")
     title:SetFont("Fonts\\FRIZQT__.TTF", 17, "OUTLINE")
     title:SetTextColor(1, 0.82, 0, 1)
     title:SetShadowColor(0, 0, 0, 1)
     title:SetShadowOffset(1, -1)
     title:SetPoint("TOPLEFT", config, "TOPLEFT", 14, -14)
-    title:SetText("Pom Pom")
+    title:SetText("PomPom")
 
     local subtitle = config:CreateFontString(nil, "OVERLAY")
     subtitle:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
@@ -598,6 +599,17 @@ local function CreateConfigFrame()
             info.checked  = (DB().soundIndex == i)
             info.func     = function(btn) OnPick(btn, i) end
             UIDropDownMenu_AddButton(info, level)
+        end
+    end)
+
+    -- Scale the flyout list to 75% when our sound picker opens it.
+    -- The list frame (DropDownListN) is parented to UIParent, so scaling
+    -- the picker itself wouldn't affect the flyout — we hook after ToggleDropDownMenu.
+    hooksecurefunc("ToggleDropDownMenu", function(level)
+        level = level or 1
+        local list = _G["DropDownList" .. level]
+        if list and list:IsShown() and UIDROPDOWNMENU_OPEN_MENU == configSoundPick then
+            list:SetScale(0.75)
         end
     end)
 
@@ -716,7 +728,7 @@ ev:SetScript("OnEvent", function(self, event, ...)
         self:RegisterEvent("PLAYER_REGEN_ENABLED")
         self:RegisterEvent("PLAYER_REGEN_DISABLED")
         UpdateAvailability()
-        print("|cffFFD100Pom Pom|r loaded. Use |cffFFD100/pom|r for options.")
+        print("|cffFFD100PomPom|r loaded. Use |cffFFD100/pom|r for options.")
     elseif event == "COMBAT_LOG_EVENT_UNFILTERED" then
         HandleCombatLog()
     elseif event == "PLAYER_REGEN_DISABLED" then
