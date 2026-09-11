@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.6.2
+- Drop the Wrath and Cata interface declarations. Those progression realms
+  have moved on to Mists of Pandaria Classic, so 3.4.3 and 4.4.0 were
+  advertising support for clients that no longer exist. Builds now cover
+  Classic Era and TBC Anniversary, which are the two this addon is actually
+  played and tested on.
+
 ## 1.6.1
 - Packaged builds now cover every supported game type. The 1.6 release zip
   was Era-only: without per-flavor TOC generation the packager collapsed the
