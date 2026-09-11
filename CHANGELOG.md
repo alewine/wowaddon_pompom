@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.1
+- Packaged builds now cover every supported game type. The 1.6 release zip
+  was Era-only: without per-flavor TOC generation the packager collapsed the
+  Interface-Classic/BCC/Wrath/Cata lines down to the single plain Interface
+  value and built one flavor from it.
+
 ## 1.6
 - Fix the bounce badge failing to decrement as Prayer of Mending jumps.
 - Reduce beep volume by 20%.

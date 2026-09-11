@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - "v*"
+      - "[0-9]*"        # unprefixed tags keep the "v" out of the toc version
 
 # The packager creates a GitHub Release, which the default read-only
 # GITHUB_TOKEN cannot do. Without this the job fails almost immediately.
