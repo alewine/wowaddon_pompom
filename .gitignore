@@ -2,3 +2,5 @@
 *.bak
 *.bak[0-9]
 Thumbs.db
+.release/
+*.zip

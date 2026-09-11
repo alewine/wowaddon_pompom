@@ -6,7 +6,7 @@
 ## Title: PomPom
 ## Notes: Prayer of Mending tracker (self-cast)
 ## Author: Zeroseven
-## Version: 1.6
+## Version: @project-version@
 ## X-Category: Buffs & Debuffs
 ## X-License: MIT
 ## X-Website: https://github.com/alewine/wowaddon_pompom

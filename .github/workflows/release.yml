@@ -1,0 +1,30 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+# The packager creates a GitHub Release, which the default read-only
+# GITHUB_TOKEN cannot do. Without this the job fails almost immediately.
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        # the packager needs full history and tags
+
+      - name: Package and release
+        uses: BigWigsMods/packager@v2
+        env:
+          # CF_API_KEY is only read once the .toc carries a real numeric
+          # X-Curse-Project-ID. Until the CurseForge project exists, the
+          # packager just builds the zip and attaches it to the GitHub
+          # Release, which is what we want.
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}

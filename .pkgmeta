@@ -12,3 +12,4 @@ ignore:
   - .gitignore
   - .pkgmeta
   - screenshots
+  - logo.png
