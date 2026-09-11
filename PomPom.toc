@@ -10,6 +10,7 @@
 ## X-Category: Buffs & Debuffs
 ## X-License: MIT
 ## X-Website: https://github.com/alewine/wowaddon_pompom
+## X-Curse-Project-ID: 1680485
 ## SavedVariablesPerCharacter: PomPomDB
 
 PomPom.lua
