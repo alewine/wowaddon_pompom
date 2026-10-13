@@ -3,12 +3,19 @@
 ## 1.6.3
 - Add provisional WoW Forever support (Interface 16001). Not yet verified
   live — Forever's beta is level-capped at 30 and Prayer of Mending is a
-  level-60 Holy talent, so testing has to wait until the live release and a
-  priest at cap. Expected to work largely unchanged: PoM is confirmed in
+  level-60 Holy talent, so testing has to wait until the live release and
+  a priest at cap. Expected to work largely unchanged: PoM is confirmed in
   Forever's Holy tree with the same 5-bounce / 30s-per-bounce behavior as
-  TBC Classic. Likely needs follow-up tuning for the recast cooldown
-  constant and the shadow-spec guard once the live client exposes a real
-  spec API.
+  TBC Classic. The recast cooldown constant may need tuning once the live
+  client exposes real values.
+- Trim the shadow-spec availability guard and the three talent-tree event
+  registrations that fed it. A priest who respecs to Shadow loses the Holy
+  talent and so loses Prayer of Mending from the spellbook, which the
+  existing spellbook check already catches. The only sliver the shadow
+  guard uniquely caught — a dual-spec priest currently in Shadow with Holy
+  as off-spec — now shows an idle tracker instead of the disabled
+  "shadow spec doesn't need this" message. Removes a cross-flavor spec API
+  that would otherwise have needed a Forever-specific rewrite.
 
 ## 1.6.2
 - Drop the Wrath and Cata interface declarations. Those progression realms

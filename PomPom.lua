@@ -154,22 +154,6 @@ end
 
 -- ── Availability + combat fade ──────────────────────────────────
 
-local function IsShadowSpec()
-    if GetSpecialization then
-        local s = GetSpecialization()
-        if s then return s == 3 end
-    end
-    if GetTalentTabInfo then
-        local group = (GetActiveTalentGroup and GetActiveTalentGroup()) or 1
-        local ok1, _, _, disc = pcall(GetTalentTabInfo, 1, false, false, group)
-        local ok2, _, _, holy = pcall(GetTalentTabInfo, 2, false, false, group)
-        local ok3, _, _, shadow = pcall(GetTalentTabInfo, 3, false, false, group)
-        if not ok3 or not shadow then return false end
-        return shadow > (disc or 0) and shadow > (holy or 0)
-    end
-    return false
-end
-
 local function CheckAvailability()
     local _, class = UnitClass("player")
     if class ~= "PRIEST" then
@@ -179,9 +163,6 @@ local function CheckAvailability()
         or (IsSpellKnown and IsSpellKnown(POM_SPELL_ID))
     if not known then
         return false, "Prayer of Mending is not in your spellbook."
-    end
-    if IsShadowSpec() then
-        return false, "Shadow spec doesn't need Prayer of Mending tracking."
     end
     return true
 end
@@ -722,9 +703,6 @@ ev:SetScript("OnEvent", function(self, event, ...)
         CreateConfigFrame()
         inCombat = UnitAffectingCombat("player") and true or false
         self:RegisterEvent("SPELLS_CHANGED")
-        self:RegisterEvent("PLAYER_TALENT_UPDATE")
-        self:RegisterEvent("CHARACTER_POINTS_CHANGED")
-        self:RegisterEvent("ACTIVE_TALENT_GROUP_CHANGED")
         self:RegisterEvent("PLAYER_REGEN_ENABLED")
         self:RegisterEvent("PLAYER_REGEN_DISABLED")
         UpdateAvailability()
@@ -737,8 +715,7 @@ ev:SetScript("OnEvent", function(self, event, ...)
     elseif event == "PLAYER_REGEN_ENABLED" then
         inCombat = false
         ApplyFadeState()
-    elseif event == "SPELLS_CHANGED" or event == "PLAYER_TALENT_UPDATE"
-        or event == "CHARACTER_POINTS_CHANGED" or event == "ACTIVE_TALENT_GROUP_CHANGED" then
+    elseif event == "SPELLS_CHANGED" then
         UpdateAvailability()
     end
 end)
