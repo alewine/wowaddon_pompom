@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.6.3
+- Add provisional WoW Forever support (Interface 16001). Not yet verified
+  live — Forever's beta is level-capped at 30 and Prayer of Mending is a
+  level-60 Holy talent, so testing has to wait until the live release and a
+  priest at cap. Expected to work largely unchanged: PoM is confirmed in
+  Forever's Holy tree with the same 5-bounce / 30s-per-bounce behavior as
+  TBC Classic. Likely needs follow-up tuning for the recast cooldown
+  constant and the shadow-spec guard once the live client exposes a real
+  spec API.
+
 ## 1.6.2
 - Drop the Wrath and Cata interface declarations. Those progression realms
   have moved on to Mists of Pandaria Classic, so 3.4.3 and 4.4.0 were

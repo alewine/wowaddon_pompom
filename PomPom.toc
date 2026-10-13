@@ -1,6 +1,7 @@
 ## Interface: 11509
 ## Interface-Classic: 11509
 ## Interface-BCC: 20506
+## Interface-Classic_Beta: 16001
 ## Title: PomPom
 ## Notes: Prayer of Mending tracker (self-cast)
 ## Author: Zeroseven
